@@ -1,0 +1,36 @@
+.initial-spinner {
+  position: absolute;
+  left: 50%;
+  margin-left: -4em;
+  top: 40%;
+}
+
+.sec-container {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  margin: 0 auto;
+}
+
+.sec-container > * {
+  width: 100%;
+}
+
+.flex-container {
+  display: flex;
+  justify-content: center;
+}
+
+.flex-container > button {
+  width: 100px;
+  margin: 10px;
+  text-align: center;
+}
+
+.mat-form-field {
+  margin-bottom: 15px;
+  textarea{
+    min-height:50px
+  }
+}
