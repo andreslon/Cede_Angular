@@ -1,0 +1,62 @@
+<div class="sec-container">
+    <mat-card>
+        <h2>Tipos</h2>
+        <p>
+            <b>string:</b>{{textString}}
+        </p>
+        <p>
+            <b>number:</b>{{textNumber}}
+        </p>
+        <p>
+            <b>boolean:</b>{{textBoolean}}
+        </p>
+        <p>
+            <b>string[]:</b>{{textArray}}
+        </p>
+    </mat-card>
+    <mat-card>
+        <h2>Reconocimiento de tipados</h2>
+        <mat-form-field>
+            <input matInput placeholder="My text" [(ngModel)]="text1">
+        </mat-form-field>
+        <b>{{text1}}</b>
+        <p>
+            <b>substr:</b>{{text1.substr(0, 5)}}
+        </p>
+    </mat-card>
+    <mat-card>
+        <h2>Binding y enlazados con ngModel</h2>
+        <mat-form-field>
+            <input matInput placeholder="Número" [(ngModel)]="num1">
+        </mat-form-field>
+        <p>
+            One way binding <input type="number" [ngModel]="num1">
+        </p>
+        <p>
+            Two way binding: <input type="number" [(ngModel)]="num1">
+        </p>
+        <p>
+            Evento ngModelChange: <input type="number" [ngModel]="num1" (ngModelChange)="ChangeValue($event)">
+        </p>
+    </mat-card>
+
+    <mat-card>
+        <h2>Eventos</h2>
+        <mat-form-field>
+            <input matInput placeholder="message" [(ngModel)]="message">
+        </mat-form-field>
+        <p>
+            <button mat-raised-button color="primary" (click)="showAlert()">Show Alert</button>
+        </p>
+    </mat-card>
+
+    <mat-card>
+        <h2>Variables var/let</h2>
+        <mat-form-field>
+            <input matInput placeholder="message" [(ngModel)]="message">
+        </mat-form-field>
+        <p>
+            <button mat-raised-button color="primary" (click)="showAndFillVariables()">Show and fill variables</button>
+        </p>
+    </mat-card>
+</div>
