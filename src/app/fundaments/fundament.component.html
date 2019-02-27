@@ -25,6 +25,28 @@
         </p>
     </mat-card>
     <mat-card>
+        <h2>Listas y ngFor</h2>
+        <p>
+            <mat-list>
+                <h3 mat-subheader>Array</h3>
+                <mat-list-item *ngFor="let item of textArray">
+                    <mat-icon mat-list-icon>supervised_user_circle</mat-icon>
+                    <h4 mat-line>{{item}}</h4>
+                </mat-list-item>
+                <mat-divider></mat-divider>
+                <h3 mat-subheader>People</h3>
+                <mat-list-item *ngFor="let person of people">
+                    <mat-icon mat-list-icon>supervised_user_circle</mat-icon>
+                    <h4 mat-line>{{person.name}}</h4>
+                    <p mat-line> {{person.lastName}} </p>
+                    <p mat-line> {{person.isNew}} </p>
+                    <p mat-line> {{person.age}} </p>
+                </mat-list-item>
+            </mat-list>
+            <button mat-raised-button color="primary" (click)="fillpeople()">Fill people</button>
+        </p>
+    </mat-card>
+    <mat-card>
         <h2>Binding y enlazados con ngModel</h2>
         <mat-form-field>
             <input matInput placeholder="Número" [(ngModel)]="num1">

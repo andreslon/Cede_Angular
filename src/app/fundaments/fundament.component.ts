@@ -28,22 +28,22 @@ export class FundamentComponent {
     alert("var dentro de bloque: " + variable_var);
     alert("let dentro de bloque: " + variable_let);
   } 
-  persons: Person[];
-  fillPersons() {
-    this.persons = [];
-    this.persons.push({
+  people: Person[];
+  fillpeople() {
+    this.people = [];
+    this.people.push({
       name: "Andrés",
       lastName: "Londoño",
       isNew: true,
       age: 26
     });
-    this.persons.push({
+    this.people.push({
       name: "Andrés",
       lastName: "Londoño",
       isNew: true,
       age: 26
     });
-    this.persons.push({
+    this.people.push({
       name: "Andrés",
       lastName: "Londoño",
       isNew: true,
