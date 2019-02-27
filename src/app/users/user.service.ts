@@ -1,33 +1,39 @@
 import { Injectable } from "@angular/core";
-import { HttpClient } from "@angular/common/http";
-import { UserFullModel } from "./user.model";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { UserBaseModel } from "./user.model";
+const httpOptions = {
+  headers: new HttpHeaders({
+    "Content-Type": "application/json",
+    "Access-Control-Allow-Headers": "Content-Type",
+    "Access-Control-Allow-Origin": "*",
+    "Access-Control-Allow-Methods": "GET, POST, DELETE, PUT"
+  })
+};
 @Injectable()
 export class UserService {
   private baseUrl: string;
+
   constructor(private http: HttpClient) {
-    this.baseUrl = "";
+    this.baseUrl = "https://medicalappointmentapi.azurewebsites.net/api/User";
   }
-  getAll(sort: string, search: string, page: number, pageSize: number = 1) {
-    const requestUrl = `${
-      this.baseUrl
-    }api/Users?sort=${sort}&search=${search}&page=${page +
-      1}&search=${pageSize}`;
-    return this.http.get(requestUrl);
+  getAll() {
+    const requestUrl = this.baseUrl;
+    return this.http.get(requestUrl, httpOptions);
   }
   get(id: string) {
-    const requestUrl = `${this.baseUrl}api/Users/${id}`;
+    const requestUrl = `${this.baseUrl}/${id}`;
     return this.http.get(requestUrl);
   }
   delete(id: string) {
-    const requestUrl = `${this.baseUrl}api/Users/${id}`;
+    const requestUrl = `${this.baseUrl}/${id}`;
     return this.http.delete(requestUrl);
   }
-  addUpdate(body: UserFullModel) {
-    if (body.id) {
-      const requestUrl = `${this.baseUrl}api/Users/${body.id}`;
+  addUpdate(body: UserBaseModel) {
+    if (body.userId) {
+      const requestUrl = `${this.baseUrl}/${body.userId}`;
       return this.http.put(requestUrl, body);
     } else {
-      const requestUrl = `${this.baseUrl}api/Users`;
+      const requestUrl = this.baseUrl;
       return this.http.post(requestUrl, body);
     }
   }

@@ -1,11 +1,14 @@
 export interface UserBaseModel {
-  id: string;
+  userId: string;
   name: string;
-  redirectUri: string;
-  postLogoutRedirectUri: string;
-}
-export interface UserFullModel extends UserBaseModel {
-  //public List < ScopeFullDto > Scopes { get; set; }
-  //public List < GrantTypeFullDto > GrantTypes { get; set; }
-  //public List < SecretFullDto > Secrets { get; set; }  
-}
+  lastName: string;
+  nit: string;
+  nitType: number;
+  nitDate: Date;
+  contract?: any;
+  birthDay: Date;
+  userStatus: number;
+  genre: number;
+  email?: any;
+  appointments?: any;
+} 
